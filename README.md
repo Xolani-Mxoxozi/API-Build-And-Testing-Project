@@ -20,6 +20,6 @@ Routes
  - PUT            - '/results/<int:indexId>'
  - DELETE         - '/results/<int:indexId>'
 
-
-  
-  
+Running tests in Docker
+  - sudo docker-compose build
+  - sudo docker-compose up

@@ -23,8 +23,8 @@ students = [
 #curl -i -H "Content-Type: application/json" -X POST -d "{\"name\":\"Sivu\"}" http://127.0.0.1:5000/result
 @app.route('/', methods=['GET'])
 def student():
+   student_Data =  jsonify({'student':students})
    return jsonify({'student':students})
-
 
 @app.route('/results/<int:indexId>',methods=["GET"])
 def get_id(indexId):
@@ -50,4 +50,4 @@ def add_results() :
    return jsonify({'students':student}), 201
 
 if __name__ == '__main__':
- app.run(debug=True)
+ app.run(host='0.0.0.0', debug=True)

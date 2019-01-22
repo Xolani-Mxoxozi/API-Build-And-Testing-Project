@@ -1,3 +1,17 @@
+# language: python
+# python:
+#   - "2.7"
+# cache: pip
+
+# services: docker
+
+# install:
+#   - pip install -r requirements.txt
+
+# script:
+#   - docker-compose build
+#   - docker-compose up
+#   - sleep 20
 language: python
 python:
   - "2.7"
@@ -8,7 +22,19 @@ services: docker
 install:
   - pip install -r requirements.txt
 
+before_script:
+# make a local port based on python version, e.g. 5000 or 5034
+  - export LOCAL_MARVIN_PORT=50${TRAVIS_PYTHON_VERSION/.}
+# start the local web server on port 50XX
+  - $TRAVIS_BUILD_DIR/bin/run_marvin -l -d -p $LOCAL_MARVIN_PORT > /dev/null &
+  - sleep 10
+# list the processes running
+  - lsof -Pnl +M -i4
+# test the web server is running
+ # - curl http://localhost:$LOCAL_MARVIN_PORT/marvin2/api/general/getroutemap/
+
 script:
   - docker-compose build
   - docker-compose up
-  - sleep 20
+  # test the web server is running
+  - curl http://localhost:$LOCAL_MARVIN_PORT/marvin2/api/general/getroutemap/

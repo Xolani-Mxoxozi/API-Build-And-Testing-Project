@@ -29,7 +29,7 @@ before_script:
   - $TRAVIS_BUILD_DIR/bin/run_marvin -l -d -p $LOCAL_MARVIN_PORT > /dev/null &
   - sleep 10
 # list the processes running
-  - lsof -Pnl +M -i4
+  #- lsof -Pnl +M -i4
 # test the web server is running
  # - curl http://localhost:$LOCAL_MARVIN_PORT/marvin2/api/general/getroutemap/
 

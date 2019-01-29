@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python
 ADD . /test
 WORKDIR /test
 EXPOSE 5000

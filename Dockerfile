@@ -1,4 +1,4 @@
-FROM python
+FROM python:latest
 ADD . /test
 WORKDIR /test
 EXPOSE 5000

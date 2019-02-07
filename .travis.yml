@@ -37,4 +37,4 @@ script:
   - docker-compose build
   - docker-compose up
   # test the web server is running
-  - curl http://localhost:$LOCAL_MARVIN_PORT/marvin2/api/general/getroutemap/
+#   - curl http://localhost:$LOCAL_MARVIN_PORT/marvin2/api/general/getroutemap/
